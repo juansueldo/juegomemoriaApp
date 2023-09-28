@@ -2,13 +2,10 @@ import { NgIf } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
 @Component({
   selector: 'app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrls: ['./custom-input.component.scss'],
-  standalone: true,
-  imports: [NgIf, IonicModule,ReactiveFormsModule]
 })
 export class CustomInputComponent  implements OnInit {
   @Input() control: FormControl;
@@ -39,5 +36,5 @@ export class CustomInputComponent  implements OnInit {
       this.type='text';
     }
   }
-
 }
+
