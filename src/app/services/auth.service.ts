@@ -28,6 +28,9 @@ export class AuthService {
     const auth = getAuth();
     return updateProfile(auth.currentUser, user)
   }
+  mailLogueado(){
+    return this.auth.authState;
+  }
   logout(){
     return this.auth.signOut();
   }
