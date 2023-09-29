@@ -31,6 +31,9 @@
 ion-content{
     --background: #a25ab8;
 }
+ion-toolbar, ion-item{
+  --background: #4e847c;
+}
 .tracking-in-contract-bck-top {
 	-webkit-animation: tracking-in-contract-bck-top 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	        animation: tracking-in-contract-bck-top 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;

@@ -20,9 +20,9 @@ export class RankingPage implements OnInit {
         return a.segundos - b.segundos;
       });
       this.puntajes = data;
-      this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'fácil')
+      this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'Principiante')
       this.top5 = this.top5.slice(0, 5);
-      this.nivel = 'fácil';
+      this.nivel = 'Principiante';
       setTimeout(() => {
         this.cargando = false        
       }, 2000);
@@ -35,23 +35,26 @@ export class RankingPage implements OnInit {
   tipoResultado(tipo : number){
     switch (tipo) {
       case 1:
-        this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'fácil')
+        this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'Principiante')
         this.top5 = this.top5.slice(0, 5);
-        this.nivel = 'fácil';
+        this.nivel = 'Principiante';
         break;
       case 2:
-        this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'medio')
+        this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'Avanzado')
         this.top5 = this.top5.slice(0, 5);
-        this.nivel = 'medio';
+        this.nivel = 'Avanzado';
         break;
       case 3:
-        this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'difícil')
+        this.top5 = this.puntajes.filter((a: { nivel: string; }) => a.nivel === 'Experto')
         this.top5 = this.top5.slice(0, 5);
-        this.nivel = 'difícil';
+        this.nivel = 'Experto';
         break;
     
       
     }
+  }
+  logout(){
+    this.auth.logout();
   }
 
 }

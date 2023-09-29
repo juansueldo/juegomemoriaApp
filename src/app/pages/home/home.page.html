@@ -1,14 +1,14 @@
-<ion-header [translucent]="true" color="warning" *ngIf="!dificultad">
-  <ion-toolbar color="warning">
+<ion-header [translucent]="true" *ngIf="!dificultad">
+  <ion-toolbar>
     
     <ion-buttons slot="start">
-      <ion-button fill="outline" shape="round" routerLink="/ranking">
-        Tabla de posiciones
+      <ion-button fill="clear" shape="round" routerLink="/ranking">
+        Salón de la fama
       </ion-button>
     </ion-buttons>
     
     <ion-buttons slot="end">
-      <ion-button fill="outline" shape="round" (click)="this.auth.logout()">
+      <ion-button fill="clear" shape="round" (click)="this.auth.logout()">
         Cerrar sesión
         <ion-icon name="log-out-outline"></ion-icon>
       </ion-button>
@@ -17,14 +17,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-header [translucent]="true" color="warning" *ngIf="dificultad">
-  <ion-toolbar color="warning">
+<ion-header [translucent]="true" *ngIf="dificultad">
+  <ion-toolbar>
     <ion-title>
       <span>{{ formatTime() }}</span>
     </ion-title>
     
     <ion-buttons slot="end">
-      <ion-button fill="outline" shape="round" (click)="elegirNivel(0)">
+      <ion-button fill="clear" shape="round" (click)="elegirNivel(0)">
         Volver
       </ion-button>
     </ion-buttons>
@@ -40,15 +40,15 @@
 
     <div class="contenedor-botones" *ngIf="!dificultad">      
       <div class="boton-numero" (click)="elegirNivel(1)">        
-          <ion-title class="ion-text-center" style="font-size:xx-large">Fácil</ion-title>
+          <ion-title class="ion-text-center" style="font-size:xx-large">Principiante</ion-title>
       </div>
 
       <div class="boton-numero" (click)="elegirNivel(2)">
-        <ion-title class="ion-text-center" style="font-size:xx-large">Medio</ion-title>
+        <ion-title class="ion-text-center" style="font-size:xx-large">Avanzado</ion-title>
       </div>
 
       <div class="boton-numero" (click)="elegirNivel(3)">
-        <ion-title class="ion-text-center" style="font-size:xx-large">Difícil</ion-title>
+        <ion-title class="ion-text-center" style="font-size:xx-large">Experto</ion-title>
       </div>
     </div>
 

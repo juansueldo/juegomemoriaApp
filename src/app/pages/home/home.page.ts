@@ -218,7 +218,7 @@ export class HomePage {
         break;
 
       case 1:        
-        this.dificultad = 'fácil';
+        this.dificultad = 'principiante';
         this.cantidadPares = 3;
         this.cartas = this.animales;
         this.cartas.sort(()=> Math.random() - 0.5);
@@ -226,7 +226,7 @@ export class HomePage {
         break;
       
       case 2:
-        this.dificultad = 'medio';
+        this.dificultad = 'avanzado';
         this.cantidadPares = 5;
         this.cartas = this.herramientas;
         this.cartas.sort(()=> Math.random() - 0.5);
@@ -234,7 +234,7 @@ export class HomePage {
         break;
       
       case 3:
-        this.dificultad = 'difícil';
+        this.dificultad = 'experto';
         this.cantidadPares = 8;
         this.cartas = this.frutas;
         this.cartas.sort(()=> Math.random() - 0.5);
