@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { Router } from '@angular/router';
-import { FormGroup, FormsModule, FormControl, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 import { User } from 'src/app/models/user.model';
-
-
 
 @Component({
   selector: 'app-login',
@@ -14,57 +11,63 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  form = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('',[Validators.required]),
-  })
-  constructor(private firebaseSvc: AuthService,
-    private utilsSvc: UtilsService,
-    private route: Router) { }
+
+  formRegistro:FormGroup;
+  
+  constructor(private auth : AuthService,private fb : FormBuilder, private router: Router, private utilservice: UtilsService) { 
+    this.formRegistro = this.fb.group(
+      {
+        'email':['',[Validators.required,Validators.email]],
+        'pass':['',[Validators.required,Validators.minLength(6)]]
+      }
+    );
+  }
 
   ngOnInit() {
   }
-  submit() {
-    if (this.form.valid) {
+
+  login(){
+    if (this.formRegistro.valid) {
       //console.log(this.form.value);
-      this.utilsSvc.presentLoading({message: 'Autenticando...',spinner: 'bubbles',cssClass: 'custom-loading'})
-      this.firebaseSvc.login(this.form.value as User).then(async res =>{
+      this.utilservice.presentLoading({message: 'Validando...',spinner: 'crescent',cssClass: 'custom-loading'})
+      this.auth.login(this.formRegistro.value.email, this.formRegistro.value.pass).then(async res =>{
         let user: User={
           uid: res.user.uid,
           name: res.user.displayName,
           email: res.user.email
         }
-        this.utilsSvc.setElementInLocalstorage('user',user)
-        this.utilsSvc.routerLink('/home')
-        this.route.navigate(['/home'], { queryParams: user });
+        this.utilservice.dismissLoading();
+        this.utilservice.setElementInLocalstorage('user',user)
+        this.utilservice.routerLink('/home')
+        this.router.navigate(['/home'], { queryParams: user });
         
         
-        this.utilsSvc.dismissLoading();
-        this.utilsSvc.presentToast({
+        
+        this.utilservice.presentToast({
           message: `Te damos la bienvenida ${user.email}`,
           duration: 1500,
           cssClass: 'toast-bg',
-          icon: 'person-outline'
+          icon: 'person-outline',
+          position:'top'
         })
 
-        this.form.reset();
+        this.formRegistro.reset();
       }, error =>{
-        this.utilsSvc.presentToast({
+        this.utilservice.dismissLoading();
+        this.utilservice.presentToast({
           message: 'Usuario y/o contraseña inválida',
           duration: 1500,
           cssClass: 'toast-bg',
-          icon: 'alert-circle-outline'
+          icon: 'alert-circle-outline',
+          position:'top'
         })
-        this.utilsSvc.dismissLoading();
       })
-    }
   }
-  signup(){
-    this.utilsSvc.routerLink('/signup')
-  }
-  logueoRapido(email:string, pass:string){
-    this.form.controls['email'].setValue(email);
-    this.form.controls['password'].setValue(pass);
+}
+
+  logueoRapido(email:string,pass:string){
+    this.formRegistro.controls['email'].patchValue(email);
+    this.formRegistro.controls['pass'].patchValue(pass);
   }
 
 }

@@ -7,3 +7,56 @@ img{
 div{
     text-align: center;
 }
+.puff-in-center {
+	-webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+ @-webkit-keyframes puff-in-center {
+    0% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      -webkit-filter: blur(4px);
+              filter: blur(4px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes puff-in-center {
+    0% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      -webkit-filter: blur(4px);
+              filter: blur(4px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  .container-alumn{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        color: #2596be;
+  }
+  .container{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #db4f41;
+        font-family: 'Pixelify Sans', cursive;
+        font-weight: 400;
+        text-shadow: 4px 4px 5px rgba(0,0,0,0.6);
+  }

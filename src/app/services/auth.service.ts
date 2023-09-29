@@ -16,8 +16,8 @@ export class AuthService {
   ) { }
 
   //======= Autenticacion ========
-  login(user: User){
-    return this.auth.signInWithEmailAndPassword(user.email,user.password)
+  login(email: string, password: string){
+    return this.auth.signInWithEmailAndPassword(email,password)
   }
 
   signinUp(user: User){
