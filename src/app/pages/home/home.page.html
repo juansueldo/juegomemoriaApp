@@ -1,20 +1,114 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header [translucent]="true" color="warning" *ngIf="!dificultad">
+  <ion-toolbar color="warning">
+    
+    <ion-buttons slot="start">
+      <ion-button fill="outline" shape="round" routerLink="/ranking">
+        Tabla de posiciones
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button fill="outline" shape="round" (click)="this.auth.logout()">
+        Cerrar sesión
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header [translucent]="true" color="warning" *ngIf="dificultad">
+  <ion-toolbar color="warning">
+    <ion-title>
+      <span>{{ formatTime() }}</span>
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button fill="outline" shape="round" (click)="elegirNivel(0)">
+        Volver
+      </ion-button>
+    </ion-buttons>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  
+  <div class="container">
+    <ion-title *ngIf="!dificultad" class="titulo-principal">Elegí un nivel</ion-title>
+
+    <div class="contenedor-botones" *ngIf="!dificultad">      
+      <div class="boton-numero" (click)="elegirNivel(1)">        
+          <ion-title class="ion-text-center" style="font-size:xx-large">Fácil</ion-title>
+      </div>
+
+      <div class="boton-numero" (click)="elegirNivel(2)">
+        <ion-title class="ion-text-center" style="font-size:xx-large">Medio</ion-title>
+      </div>
+
+      <div class="boton-numero" (click)="elegirNivel(3)">
+        <ion-title class="ion-text-center" style="font-size:xx-large">Difícil</ion-title>
+      </div>
+    </div>
+
+    <!-- ANIMALES -->
+    <div class="contenedor-carta-animal" *ngIf="dificultad == 'fácil'">
+      <div  class="carta-animal"  *ngFor="let item of cartas" (click)="jugar(item.id)">
+        <div class="flip-container-animal" id="{{item.id}}" >
+          <div class="flipper-animal">
+            
+            <div class="front-animal">
+              <img class="rotating-image" src="assets/images/question.png" alt="pregunta">
+            </div>
+            
+            <div class="back-animal">
+              <img src="{{item?.urlImagen}}" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERRAMIENTAS -->
+    <div class="contenedor-cartas-herramienta" *ngIf="dificultad == 'medio'">
+      <div  class="carta-herramienta"  *ngFor="let item of cartas" (click)="jugar(item.id)">
+        <div class="flip-container-herramienta" id="{{item.id}}" >
+          <div class="flipper-herramienta">
+            
+            <div class="front-herramienta">              
+              <img class="rotating-image" src="assets/images/question.png" alt="pregunta">
+            </div>
+
+            <div class="back-herramienta">              
+              <img src="{{item?.urlImagen}}" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FRUTAS -->
+    <div class="contenedor-cartas-fruta" *ngIf="dificultad == 'difícil'">
+      <div  class="carta-fruta"  *ngFor="let item of cartas" (click)="jugar(item.id)">
+        <div class="flip-container-fruta" id="{{item.id}}" >
+          <div class="flipper-fruta" >
+            
+            <div class="front-fruta">
+              <img class="rotating-image" src="assets/images/question.png" alt="pregunta">
+            </div>
+
+            <div class="back-fruta">
+              <img src="{{item?.urlImagen}}" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div> 
+
 </ion-content>
