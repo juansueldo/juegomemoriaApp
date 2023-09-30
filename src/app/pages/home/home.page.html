@@ -8,7 +8,7 @@
     </ion-buttons>
     
     <ion-buttons slot="end">
-      <ion-button fill="clear" shape="round" (click)="this.auth.logout()">
+      <ion-button fill="clear" shape="round" (click)="logout()">
         Cerrar sesión
         <ion-icon name="log-out-outline"></ion-icon>
       </ion-button>
@@ -53,7 +53,7 @@
     </div>
 
     <!-- ANIMALES -->
-    <div class="contenedor-carta-animal" *ngIf="dificultad == 'fácil'">
+    <div class="contenedor-carta-animal" *ngIf="dificultad == 'Principiante'">
       <div  class="carta-animal"  *ngFor="let item of cartas" (click)="jugar(item.id)">
         <div class="flip-container-animal" id="{{item.id}}" >
           <div class="flipper-animal">
@@ -72,7 +72,7 @@
     </div>
 
     <!-- HERRAMIENTAS -->
-    <div class="contenedor-cartas-herramienta" *ngIf="dificultad == 'medio'">
+    <div class="contenedor-cartas-herramienta" *ngIf="dificultad == 'Avanzado'">
       <div  class="carta-herramienta"  *ngFor="let item of cartas" (click)="jugar(item.id)">
         <div class="flip-container-herramienta" id="{{item.id}}" >
           <div class="flipper-herramienta">
@@ -91,7 +91,7 @@
     </div>
     
     <!-- FRUTAS -->
-    <div class="contenedor-cartas-fruta" *ngIf="dificultad == 'difícil'">
+    <div class="contenedor-cartas-fruta" *ngIf="dificultad == 'Experto'">
       <div  class="carta-fruta"  *ngFor="let item of cartas" (click)="jugar(item.id)">
         <div class="flip-container-fruta" id="{{item.id}}" >
           <div class="flipper-fruta" >

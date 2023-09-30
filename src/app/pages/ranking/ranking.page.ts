@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { PuntajesService } from 'src/app/services/puntajes.service';
 
@@ -14,7 +15,7 @@ export class RankingPage implements OnInit {
   nivel : string = ''
   cargando : boolean = true;
 
-  constructor(public auth : AuthService, private db : PuntajesService) { 
+  constructor(public auth : AuthService, private db : PuntajesService, private router: Router) { 
     this.db.traerPuntajes().subscribe(data => {
       data.sort(function(a, b) {
         return a.segundos - b.segundos;
@@ -53,8 +54,10 @@ export class RankingPage implements OnInit {
       
     }
   }
-  logout(){
+  public logout(){
     this.auth.logout();
+    this.router.navigateByUrl("/login");
   }
+
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/services/auth.service';
 import { PuntajesService } from 'src/app/services/puntajes.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -157,7 +158,7 @@ export class HomePage {
   cantidadPares : number = 0;
   tiempoJugador : any;
 
-  constructor(public auth : AuthService,private db : PuntajesService) {}
+  constructor(public auth : AuthService,private db : PuntajesService, private router: Router) {}
 
   jugar(id:number){    
     
@@ -218,7 +219,7 @@ export class HomePage {
         break;
 
       case 1:        
-        this.dificultad = 'principiante';
+        this.dificultad = 'Principiante';
         this.cantidadPares = 3;
         this.cartas = this.animales;
         this.cartas.sort(()=> Math.random() - 0.5);
@@ -226,7 +227,7 @@ export class HomePage {
         break;
       
       case 2:
-        this.dificultad = 'avanzado';
+        this.dificultad = 'Avanzado';
         this.cantidadPares = 5;
         this.cartas = this.herramientas;
         this.cartas.sort(()=> Math.random() - 0.5);
@@ -234,7 +235,7 @@ export class HomePage {
         break;
       
       case 3:
-        this.dificultad = 'experto';
+        this.dificultad = 'Experto';
         this.cantidadPares = 8;
         this.cartas = this.frutas;
         this.cartas.sort(()=> Math.random() - 0.5);
@@ -312,6 +313,10 @@ export class HomePage {
       }
     this.db.guardarDatos(data);
     
+  }
+  public logout(){
+    this.auth.logout();
+    this.router.navigateByUrl("/login");
   }
 
 }
