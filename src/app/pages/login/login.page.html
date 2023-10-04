@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="titulo-login">
-    <ion-title>Bienvenido al juego de memoria</ion-title>
+    <ion-title class="title">Bienvenido al juego de memoria</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,16 +31,14 @@
     <div class="container-buttons">
       <div class="ion-text-center ion-margin-top">
         <ion-radio-group value="custom-checked">
-          <ion-radio value="invitado" aria-label="Custom checkbox" (click)="logueoRapido('invitado@invitado.com.ar','123456')">Entrar como invitado</ion-radio>
-          <ion-radio value="admin" aria-label="Custom checkbox"  (click)="logueoRapido('admin@admin.com.ar','123456')">Entrar como administrador</ion-radio>
-          <ion-radio value="usuario" aria-label="Custom checkbox" (click)="logueoRapido('usuario@usuario.com','123456')">Entrar como usuario</ion-radio>
-          <ion-radio value="alumno" aria-label="Custom checkbox" (click)="logueoRapido('juan@gmail.com','solano823')">Entrar como alumno</ion-radio>
+          <p></p>
+          <ion-radio value="invitado" aria-label="Custom checkbox" (click)="logueoRapido('invitado@invitado.com.ar','123456')"><h2>Entrar como invitado</h2></ion-radio>
+          <ion-radio value="admin" aria-label="Custom checkbox"  (click)="logueoRapido('admin@admin.com.ar','123456')"><h2>Entrar como administrador</h2></ion-radio>
+          <ion-radio value="usuario" aria-label="Custom checkbox" (click)="logueoRapido('usuario@usuario.com.ar','123456')"><h2>Entrar como usuario</h2></ion-radio>
+          <ion-radio value="alumno" aria-label="Custom checkbox" (click)="logueoRapido('juan@gmail.com','123456')"><h2>Entrar como alumno</h2></ion-radio>
         </ion-radio-group>
       </div>
     </div>
-    
-  
-
   </div>
 
 </ion-content>
