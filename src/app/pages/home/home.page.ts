@@ -22,11 +22,11 @@ export class HomePage {
     },
     {
       id:2,
-      urlImagen:'/assets/images/animals/horse.png'
+      urlImagen:'/assets/images/animals/lion.png'
     },
     {
       id:3,
-      urlImagen:'/assets/images/animals/turtle.png'
+      urlImagen:'/assets/images/animals/monkey.png'
     },
     {
       id: 4,
@@ -34,121 +34,121 @@ export class HomePage {
     },
     {
       id: 5,
-      urlImagen: '/assets/images/animals/horse.png'
+      urlImagen: '/assets/images/animals/lion.png'
     },
     {
       id: 6,
-      urlImagen: '/assets/images/animals/turtle.png'
+      urlImagen: '/assets/images/animals/monkey.png'
     }
   ]
 
   herramientas = [
     {
       id:1,
-      urlImagen:'/assets/images/tools/drill.png'
+      urlImagen:'/assets/images/mystic/adivino.png'
     },
     {
       id:2,
-      urlImagen:'/assets/images/tools/hammer.png'
+      urlImagen:'/assets/images/mystic/caballero.png'
     },
     {
       id:3,
-      urlImagen:'/assets/images/tools/screwdriver.png'
+      urlImagen:'/assets/images/mystic/espiritu.png'
     },
     {
       id:4,
-      urlImagen:'/assets/images/tools/shovel.png'
+      urlImagen:'/assets/images/mystic/mago.png'
     },
     {
       id:5,
-      urlImagen:'/assets/images/tools/wrench.png'
+      urlImagen:'/assets/images/mystic/murcielagos.png'
     },
     {
       id: 6,
-      urlImagen: '/assets/images/tools/drill.png'
+      urlImagen: '/assets/images/mystic/adivino.png'
     },
     {
       id: 7,
-      urlImagen: '/assets/images/tools/hammer.png'
+      urlImagen: '/assets/images/mystic/caballero.png'
     },
     {
       id: 8,
-      urlImagen: '/assets/images/tools/screwdriver.png'
+      urlImagen: '/assets/images/mystic/espiritu.png'
     },
     {
       id: 9,
-      urlImagen: '/assets/images/tools/shovel.png'
+      urlImagen: '/assets/images/mystic/mago.png'
     },
     {
       id: 10,
-      urlImagen: '/assets/images/tools/wrench.png'
+      urlImagen: '/assets/images/mystic/murcielagos.png'
     }
   ]
 
   frutas = [
     {
       id: 1,
-      urlImagen: '/assets/images/fruits/apple.png'
+      urlImagen: '/assets/images/instruments/acordeon.png'
     },
     {
       id: 2,
-      urlImagen: '/assets/images/fruits/banana.png'
+      urlImagen: '/assets/images/instruments/bajo.png'
     },
     {
       id: 3,
-      urlImagen: '/assets/images/fruits/grape.png'
+      urlImagen: '/assets/images/instruments/clarinete.png'
     },
     {
       id: 4,
-      urlImagen: '/assets/images/fruits/orange.png'
+      urlImagen: '/assets/images/instruments/guitarra-de-doble-cuello.png'
     },
     {
       id: 5,
-      urlImagen: '/assets/images/fruits/pear.png'
+      urlImagen: '/assets/images/instruments/piano.png'
     },
     {
       id: 6,
-      urlImagen: '/assets/images/fruits/pineapple.png'
+      urlImagen: '/assets/images/instruments/platillos.png'
     },
     {
       id: 7,
-      urlImagen: '/assets/images/fruits/strawberry.png'
+      urlImagen: '/assets/images/instruments/saxofon.png'
     },
     {
       id: 8,
-      urlImagen: '/assets/images/fruits/watermelon.png'
+      urlImagen: '/assets/images/instruments/xilofono.png'
     },
     {
       id: 9,
-      urlImagen: '/assets/images/fruits/apple.png'
+      urlImagen: '/assets/images/instruments/acordeon.png'
     },
     {
       id: 10,
-      urlImagen: '/assets/images/fruits/banana.png'
+      urlImagen: '/assets/images/instruments/bajo.png'
     },
     {
       id: 11,
-      urlImagen: '/assets/images/fruits/grape.png'
+      urlImagen: '/assets/images/instruments/clarinete.png'
     },
     {
       id: 12,
-      urlImagen: '/assets/images/fruits/orange.png'
+      urlImagen: '/assets/images/instruments/guitarra-de-doble-cuello.png'
     },
     {
       id: 13,
-      urlImagen: '/assets/images/fruits/pear.png'
+      urlImagen: '/assets/images/instruments/piano.png'
     },
     {
       id: 14,
-      urlImagen: '/assets/images/fruits/pineapple.png'
+      urlImagen: '/assets/images/instruments/platillos.png'
     },
     {
       id: 15,
-      urlImagen: '/assets/images/fruits/strawberry.png'
+      urlImagen: '/assets/images/instruments/saxofon.png'
     },
     {
       id: 16,
-      urlImagen: '/assets/images/fruits/watermelon.png'
+      urlImagen: '/assets/images/instruments/xilofono.png'
     }
   ]
 
@@ -157,9 +157,15 @@ export class HomePage {
   aciertos : number = 0;
   cantidadPares : number = 0;
   tiempoJugador : any;
-
+  email: string;
   constructor(public auth : AuthService,private db : PuntajesService, private router: Router) {}
-
+  ngOnInit() {
+    this.auth.mailLogueado().subscribe(
+      user=>{
+        this.email = user.email;
+      }
+    )
+  }
   jugar(id:number){    
     
     const element = document.getElementById(id.toString());
@@ -301,7 +307,7 @@ export class HomePage {
     const mes = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1;
     const fecha =`${date.getDate()}/${mes}/${date.getFullYear()}`;
 
-    const jugador = this.auth.mailLogueado;
+    const jugador = this.email;
     //console.log(fecha, this.tiempoJugador,jugador,this.seconds);
     //guardar los datos,guardo segundos porque creo que para ordenar va a ser mas facil con ese dato
     const data = {

@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   firebaseConfig:{
-
     apiKey: "AIzaSyAu7LMfp4aG2GijbrJgXHfl5ppkWyQuyEE",
     authDomain: "juegomemoriaapp.firebaseapp.com",
     projectId: "juegomemoriaapp",
