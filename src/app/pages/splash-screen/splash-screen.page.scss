@@ -7,6 +7,9 @@ img{
 div{
     text-align: center;
 }
+.title{
+        font-size: 3.5rem;
+}
 .puff-in-center {
 	-webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 	        animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
@@ -49,14 +52,34 @@ div{
         right: 0;
         left: 0;
         color: #2596be;
+        .alumn{
+                font-size: 3.5rem;
+
+        }
   }
   .container{
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         color: #db4f41;
         font-family: 'Pixelify Sans', cursive;
         font-weight: 400;
         text-shadow: 4px 4px 5px rgba(0,0,0,0.6);
+  }
+  .container-app{
+        position: absolute;
+        top: -20px;
+  }
+  .container-img{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  }
+  .background{
+        position: absolute;
+        height: 450px;
   }
