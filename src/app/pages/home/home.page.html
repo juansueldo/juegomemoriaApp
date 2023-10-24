@@ -71,7 +71,7 @@
       </div>
     </div>
 
-    <!-- HERRAMIENTAS -->
+    <!-- MEDIOEVO -->
     <div class="contenedor-cartas-herramienta" *ngIf="dificultad === 'Avanzado'">
       <div  class="carta-herramienta"  *ngFor="let item of cartas" (click)="jugar(item.id)">
         <div class="flip-container-herramienta" id="{{item.id}}" >
@@ -90,7 +90,7 @@
       </div>
     </div>
     
-    <!-- FRUTAS -->
+    <!-- INSTRUMENTOS -->
     <div class="contenedor-cartas-fruta" *ngIf="dificultad === 'Experto'">
       <div  class="carta-fruta"  *ngFor="let item of cartas" (click)="jugar(item.id)">
         <div class="flip-container-fruta" id="{{item.id}}" >
