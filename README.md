@@ -2,7 +2,7 @@
 <p align="center">
   <img src="https://i.ibb.co/DC2xJ7c/image-removebg-preview.png" alt="image-removebg-preview">
 </p>
-<h2>Técnologias utilizadas</h2>
+<h2>Tecnologías utilizadas</h2>
 
 ![Ionic](https://camo.githubusercontent.com/1dc25a3b0ac719c353f9ce566b48738df88dab9aeacdc53a71846a01a5fb5c38/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f696f6e69632d3136366266653f7374796c653d666f722d7468652d6261646765266c6162656c436f6c6f723d626c61636b266c6f676f3d696f6e6963266c6f676f436f6c6f723d313636626665)
 ![Typescript](https://img.shields.io/badge/Typescript-007acc?style=for-the-badge&labelColor=black&logo=typescript&logoColor=007acc)
